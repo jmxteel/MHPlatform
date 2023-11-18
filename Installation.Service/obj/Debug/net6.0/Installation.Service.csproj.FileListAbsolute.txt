@@ -1,0 +1,11 @@
+C:\Repo\Installation.API\Installation.Service\bin\Debug\net6.0\Installation.Service.deps.json
+C:\Repo\Installation.API\Installation.Service\bin\Debug\net6.0\Installation.Service.dll
+C:\Repo\Installation.API\Installation.Service\bin\Debug\net6.0\Installation.Service.pdb
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\Installation.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\Installation.Service.AssemblyInfoInputs.cache
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\Installation.Service.AssemblyInfo.cs
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\Installation.Service.csproj.CoreCompileInputs.cache
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\Installation.Service.dll
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\refint\Installation.Service.dll
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\Installation.Service.pdb
+C:\Repo\Installation.API\Installation.Service\obj\Debug\net6.0\ref\Installation.Service.dll
