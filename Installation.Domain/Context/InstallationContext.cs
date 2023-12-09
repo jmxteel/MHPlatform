@@ -10,10 +10,11 @@ namespace Installation.Domain.Context
 {
     public class InstallationContext : DbContext
     {
-        //public DbSet<Movie>? Movie { get; set; }
         public DbSet<FileFlow>? FileFlow { get; set; }
+        public DbSet<FileFlowAreas>? FileFlowAreas { get; set; }
         public InstallationContext(DbContextOptions<InstallationContext> options) : base(options)
         {
         }
+
     }
 }

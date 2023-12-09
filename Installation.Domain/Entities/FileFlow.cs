@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Installation.Domain.Entities
 {
 	public class FileFlow
 	{
+		[Key]
 		public int ID { get; set; }
 
 		public string? OrderID { get; set; }
@@ -111,5 +114,8 @@ namespace Installation.Domain.Entities
 		public string? MHGrouping { get; set; }
 
 		public string? samplecolor { get; set; }
-	}
+
+		public ICollection<FileFlowAreas>? Areas { get; set; } = new List<FileFlowAreas>();
+
+    }
 }

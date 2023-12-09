@@ -10,3 +10,15 @@ C:\Repo\Installation.API\Installation.Domain\obj\Debug\net6.0\Installation.Domai
 C:\Repo\Installation.API\Installation.Domain\obj\Debug\net6.0\refint\Installation.Domain.dll
 C:\Repo\Installation.API\Installation.Domain\obj\Debug\net6.0\Installation.Domain.pdb
 C:\Repo\Installation.API\Installation.Domain\obj\Debug\net6.0\ref\Installation.Domain.dll
+D:\Repo\Installation\Installation.Domain\bin\Debug\net6.0\Installation.Domain.deps.json
+D:\Repo\Installation\Installation.Domain\bin\Debug\net6.0\Installation.Domain.dll
+D:\Repo\Installation\Installation.Domain\bin\Debug\net6.0\Installation.Domain.pdb
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.csproj.AssemblyReference.cache
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.AssemblyInfoInputs.cache
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.AssemblyInfo.cs
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.csproj.CoreCompileInputs.cache
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.dll
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\refint\Installation.Domain.dll
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\Installation.Domain.pdb
+D:\Repo\Installation\Installation.Domain\obj\Debug\net6.0\ref\Installation.Domain.dll

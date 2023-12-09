@@ -10,5 +10,7 @@ namespace Installation.Domain.IRepository
 {
     public interface IFileFlowRepository: IGeneric<FileFlow>
     {
+        //Task<IEnumerable<FileFlow?>> GetFolderWithAreas(int id);
+        Task<FileFlow?> GetFolderWithAreas(int id);
     }
 }
