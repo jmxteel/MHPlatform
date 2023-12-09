@@ -20,13 +20,31 @@ namespace Installation.Domain.Repository
 
         public async Task<IEnumerable<T?>> GetAllAsync()
         {
-            return await _context.Set<T>().Take(10).ToListAsync();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(int? id)
         {
             var result = await _context.Set<T>().FindAsync(id);
             return result; 
+        }
+
+        public Task AddAsync(T entity)
+        {
+            _context.Set<T>().AddAsync(entity);
+            return _context.SaveChangesAsync();
+        }
+
+        public Task UpdateAsync(T entity)
+        {
+            _context.Set<T>().Update(entity);
+            return _context.SaveChangesAsync();
+        }
+
+        public Task DeleteAsync(T entity)
+        {
+            _context.Set<T>().Remove(entity);
+            return _context.SaveChangesAsync();
         }
 
     }
