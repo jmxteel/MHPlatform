@@ -1,10 +1,12 @@
 ﻿using Installation.Service.IService;
 using Installation.Service.Model.Installation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Installation.API.Controllers
 {
     [Route("api/FileFlowAreas")]
+    [Authorize(Policy = "CanAccessProducts")]
     [ApiController]
     public class FileFlowAreasController: ControllerBase
     {

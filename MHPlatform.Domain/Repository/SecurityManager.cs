@@ -1,6 +1,7 @@
 ﻿using Installation.Domain.Context;
 using MHPlatform.Domain.Entities;
 using MHPlatform.Domain.IRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,7 @@ namespace MHPlatform.Domain.Repository
         private readonly InstallationContext _context;
         private UserAuthBase _auth;
 
-        public SecurityManager(InstallationContext context
-            , UserAuthBase auth
-            )
+        public SecurityManager(InstallationContext context, UserAuthBase auth)
         {
             _context = context;
             _auth = auth;
@@ -111,5 +110,22 @@ namespace MHPlatform.Domain.Repository
 
             return list;
         }
+
+        public RefreshToken? FindByUserIdAsync(string userId)
+        {
+            var result =  _context.RefreshTokens!.Where(o => o.UserId == userId).FirstOrDefault();
+
+            return result;
+        }
+
+        public async Task<UserBase?> GetUserByUserIdAndId(string userId, string username)
+        {
+            var result = await _context.Users!.Where(o => o.UserId == new Guid(userId) && o.UserName == username).FirstOrDefaultAsync();
+
+            return (UserBase?)result;
+        }
     }
+
 }
+
+

@@ -26,7 +26,7 @@ namespace Installation.Domain.SQLBuilder
 
             return queryBuilder.ToString();
         }
-        public override string SQLQueryBuilder(DataManipulationEnum command, int id)
+        public override string SQLQueryBuilder(DataManipulationEnum command, string ffSrc)
         {
 
             var queryBuilder = new StringBuilder();
@@ -90,7 +90,7 @@ namespace Installation.Domain.SQLBuilder
             //}
             queryBuilder.AppendLine(" FROM");
             queryBuilder.AppendLine($" FileFlow");
-            queryBuilder.AppendLine($" WHERE ID = {id} AND (deleted IS NULL OR deleted = '')");
+            queryBuilder.AppendLine($" WHERE FFsrc = '{ffSrc}' AND (deleted IS NULL OR deleted = '')");
 
 
             return queryBuilder.ToString();

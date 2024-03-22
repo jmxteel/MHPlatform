@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MHPlatform.Domain;
 
 namespace Installation.Domain.Repository
 {
@@ -21,44 +21,14 @@ namespace Installation.Domain.Repository
             _context = context;
         }
 
-        //public async Task<IEnumerable<FileFlow?>> GetFolderWithAreas(int id)
-        public async Task<FileFlow?> GetFolderWithAreas(int id)
+        public async Task<FileFlow?> GetFolderWithAreas(string ffSrc)
         {
-            //var fileFlowQueryBuilder = new FileFlowQueryBuilder();
-            //var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, id);
-
-            //var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).ToListAsync();
-            //// Note: This retrieves all FileFlowAreas;
-            //var fileFlowAreas = await _context.FileFlowAreas!.Where(o => o.ffID == id).ToListAsync();
-
-            //var result = allFileFlows.Select(ff => new
-            //{
-            //    ff.ID,
-            //    ff.OrderID,
-            //    ff.DesignConsultant,
-            //    ff.TehcnicalRep,
-            //    Areas = fileFlowAreas.Where(ffa => ffa.ffID == ff.ID)
-            //        .Select(ffa => new
-            //        {
-            //            ffa.ID,
-            //            ffa.ffID,
-            //            ffa.PArea,
-            //            ffa.NumMod
-            //        })
-            //        .ToList()
-            //});
-
             var fileFlowQueryBuilder = new FileFlowQueryBuilder();
-            var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, id);
+            var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, ffSrc);
 
-            //var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).ToListAsync();
             var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).ToListAsync();
 
-            //var fileFlowAreas = await _context.FileFlowAreas!
-            //    .Where(o => o.ffID == id)
-            //    .ToListAsync();
-
-            List<FileFlowAreas> fileFlowAreas = await FileFlowAreasList(id);
+            List<FileFlowAreas> fileFlowAreas = await FileFlowAreasList(ffSrc);
 
             var result = allFileFlows.Select(ff => new FileFlow
             {
@@ -67,7 +37,7 @@ namespace Installation.Domain.Repository
                 DesignConsultant = ff.DesignConsultant,
                 TehcnicalRep = ff.TehcnicalRep,
                 Areas = fileFlowAreas
-                    .Where(ffa => ffa.ffID == ff.ID)
+                    .Where(ffa => ffa.source == ff.FFsrc)
                     .Select(ffa => new FileFlowAreas
                     {
                         ID = ffa.ID,
@@ -82,9 +52,9 @@ namespace Installation.Domain.Repository
             return result;
         }
 
-        private Task<List<FileFlowAreas>> FileFlowAreasList(int fileFlowID)
+        private Task<List<FileFlowAreas>> FileFlowAreasList(string ffSrc)
         {
-            var fileFlowAreas = _context.FileFlowAreas!.Where(o => o.ffID == fileFlowID).ToListAsync();
+            var fileFlowAreas = _context.FileFlowAreas!.Where(o => o.source == ffSrc && o.Actn == FileFlowEnum.displayed.ToString()).ToListAsync();
             return fileFlowAreas;
         }
     }

@@ -13,5 +13,7 @@ namespace MHPlatform.Domain.IRepository
         UserAuthBase BuildUserAuthObject(Guid userId, string userName);
         UserAuthBase ValidateUser(string userName, string password);
         List<UserBase> GetUser(string userName, string password);
+        RefreshToken? FindByUserIdAsync(string userId);
+        Task<UserBase?> GetUserByUserIdAndId(string userId, string username);
     }
 }
