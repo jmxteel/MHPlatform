@@ -18,5 +18,6 @@ namespace MHPlatform.Service.Model.Security
 
         [Required()]
         public string Password { get; set; } = string.Empty;
+
     }
 }

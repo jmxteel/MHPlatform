@@ -7,6 +7,7 @@ using Installation.Domain.SQLBuilder;
 using Installation.Service.IService;
 using Installation.Service.Model.Installation;
 using Installation.Service.ServiceHelper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ using System.Data;
 namespace Installation.API.Controllers
 {
     [ApiController]
+    [Authorize(Policy = "CanAccessProducts")]
     [Route("api/fileFlow")]
     public class FileFlowController: ControllerBase
     {
@@ -37,8 +39,8 @@ namespace Installation.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("Areas/{id}")]
-        public async Task<ActionResult<IEnumerable<FileFlow>>> FolderWithAreas(int id)
+        [HttpGet("Areas/{ffSrc}")]
+        public async Task<ActionResult<IEnumerable<FileFlow>>> FolderWithAreas(string ffSrc)
         {
             //var fileFlowQueryBuilder = new FileFlowQueryBuilder();
             //var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, id);
@@ -63,7 +65,7 @@ namespace Installation.API.Controllers
             //        })
             //        .ToList()
             //});
-            var result = await _service.GetFolderWithAreas(id);
+            var result = await _service.GetFolderWithAreas(ffSrc);
             return Ok(result);
 
         }

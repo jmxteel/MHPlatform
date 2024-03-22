@@ -140,3 +140,5 @@ D:\Repo\MHPlatform\MHPlatform.API\obj\Debug\net6.0\refint\MHPlatform.API.dll
 D:\Repo\MHPlatform\MHPlatform.API\obj\Debug\net6.0\MHPlatform.API.pdb
 D:\Repo\MHPlatform\MHPlatform.API\obj\Debug\net6.0\MHPlatform.API.genruntimeconfig.cache
 D:\Repo\MHPlatform\MHPlatform.API\obj\Debug\net6.0\ref\MHPlatform.API.dll
+D:\Repo\MHPlatform\MHPlatform.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Repo\MHPlatform\MHPlatform.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

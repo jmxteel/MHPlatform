@@ -29,10 +29,10 @@ namespace Installation.Service.Service
         }
         
         //public async Task<IEnumerable<FileFlowDto?>> GetFolderWithAreas(int id)
-        public async Task<FileFlowDto?> GetFolderWithAreas(int id)
+        public async Task<FileFlowDto?> GetFolderWithAreas(string ffSrc)
         {
 
-            var result = await _fileFlowRepository.GetFolderWithAreas(id);
+            var result = await _fileFlowRepository.GetFolderWithAreas(ffSrc);
             //var resultDto = _mapper.Map<IEnumerable<FileFlowDto>>(result);
             var resultDto = _mapper.Map<FileFlowDto>(result);
             return resultDto;

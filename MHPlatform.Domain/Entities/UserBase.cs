@@ -20,5 +20,6 @@ namespace MHPlatform.Domain.Entities
 
         [Required()]
         public string Password { get; set; } = string.Empty;
+
     }
 }

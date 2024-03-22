@@ -11,7 +11,11 @@ using MHPlatform.Domain.Repository;
 using MHPlatform.Service.IService;
 using MHPlatform.Service.Model.Security;
 using MHPlatform.Service.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -53,6 +57,35 @@ builder.Services.AddTransient<UserAuthBaseDto>();
 builder.Services.AddTransient<ISecurityManagerService, SecurityManagerService>();
 
 builder.Services.MHPlatformServices();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "JwtBearer";
+    options.DefaultChallengeScheme = "JwtBearer";
+}).AddJwtBearer("JwtBearer", jwtBearerOptions =>
+{
+    jwtBearerOptions.TokenValidationParameters =
+    new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtToken:key"])),
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JwtToken:issuer"],
+
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JwtToken:audience"],
+
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.FromMinutes(Convert.ToInt32(builder.Configuration["JwtToken:minutestoexpiration"]))
+    };
+});
+
+builder.Services.AddAuthorization(options => {
+    //NOTE claim key and values are case sensitive
+    options.AddPolicy("CanAccessProducts", p =>
+    p.RequireClaim("CanAccessProducts", "true"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -63,6 +96,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseCors(MyAllowSpecificOrigins);
 

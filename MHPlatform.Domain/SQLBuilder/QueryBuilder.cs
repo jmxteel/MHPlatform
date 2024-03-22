@@ -9,6 +9,6 @@ namespace Installation.Domain.SQLBuilder
     public abstract class QueryBuilder<T> where T : class
     {
         public abstract string SQLQueryBuilder(DataManipulationEnum command);
-        public abstract string SQLQueryBuilder(DataManipulationEnum command, int id);
+        public abstract string SQLQueryBuilder(DataManipulationEnum command, string ffSrc);
     }
 }

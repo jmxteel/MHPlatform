@@ -6,6 +6,7 @@ using MHPlatform.Service.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace MHPlatform.Service.Profiles.Security
             CreateMap<UserAuthBaseDto, UserAuthBase>().ReverseMap();
             CreateMap<UserClaimDto, UserClaim>().ReverseMap();
             CreateMap<UserBaseDto, UserBase>().ReverseMap();
+            CreateMap<RefreshTokenDto,RefreshToken>().ReverseMap();
         }
     }
 }

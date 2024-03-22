@@ -11,7 +11,7 @@ namespace Installation.Service.IService
     public interface IFileFlowService: IGenericService<FileFlowDto,FileFlow>
     {
         //Task<IEnumerable<FileFlowDto?>> GetFolderWithAreas(int id);
-        Task<FileFlowDto?> GetFolderWithAreas(int id);
+        Task<FileFlowDto?> GetFolderWithAreas(string ffSrc);
 
     }
 }

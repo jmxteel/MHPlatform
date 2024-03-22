@@ -14,5 +14,7 @@ namespace MHPlatform.Service.IService
         List<UserClaimDto> GetUserClaims(Guid userId);
         UserAuthBaseDto BuildUserAuthObject(Guid userId, string userName);
         UserAuthBaseDto ValidateUser(string userName, string password);
+        RefreshTokenDto? FindByUserIdAsync(string userId);
+        Task<UserBaseDto?> GetUserByUserIdAndId(string userId, string username);
     }
 }

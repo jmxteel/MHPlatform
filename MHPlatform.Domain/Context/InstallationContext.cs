@@ -15,6 +15,7 @@ namespace Installation.Domain.Context
         public DbSet<FileFlowAreas>? FileFlowAreas { get; set; }
         public DbSet<UserBase>? Users { get; set; }
         public DbSet<UserClaim>? Claims { get; set; }
+        public DbSet<RefreshToken>? RefreshTokens { get; set; }
         public InstallationContext(DbContextOptions<InstallationContext> options) : base(options)
         {
         }
