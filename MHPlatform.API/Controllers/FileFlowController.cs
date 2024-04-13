@@ -42,54 +42,16 @@ namespace Installation.API.Controllers
         [HttpGet("Areas/{ffSrc}")]
         public async Task<ActionResult<IEnumerable<FileFlow>>> FolderWithAreas(string ffSrc)
         {
-            //var fileFlowQueryBuilder = new FileFlowQueryBuilder();
-            //var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, id);
-
-            //var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).ToListAsync();
-
-            //var fileFlowAreas = await _context.FileFlowAreas!.Where(o => o.ffID == allFileFlows[0].ID).ToListAsync(); // Note: This retrieves all FileFlowAreas;
-
-            //var result = allFileFlows.Select(ff => new
-            //{
-            //    ff.ID,
-            //    ff.OrderID,
-            //    ff.DesignConsultant,
-            //    ff.TehcnicalRep,
-            //    Areas = fileFlowAreas.Where(ffa => ffa.ffID == ff.ID)
-            //        .Select(ffa => new
-            //        {
-            //            ffa.ID,
-            //            ffa.ffID,
-            //            ffa.PArea,
-            //            ffa.NumMod
-            //        })
-            //        .ToList()
-            //});
-            var result = await _service.GetFolderWithAreas(ffSrc);
-            return Ok(result);
-
-        }
-
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<FileFlow>> Get(int id)
-        //{
-        //    var result = await _movie.GetByIdAsync(id);
-        //    return Ok(result);
-        //}
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<FileFlowDto>> Get(int? id)
-        {
             try
             {
-                var result = await _service.GetByIdAsync(id);
+                var result = await _service.GetFolderWithAreas(ffSrc);
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch
             {
-                var message = ex.Message;
-                return NotFound(message);
+                return NotFound($"The FFSrc {ffSrc} does not exist");
             }
+
         }
 
     }

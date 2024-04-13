@@ -23,33 +23,35 @@ namespace Installation.Domain.Repository
 
         public async Task<FileFlow?> GetFolderWithAreas(string ffSrc)
         {
-            var fileFlowQueryBuilder = new FileFlowQueryBuilder();
+            var fileFlowQueryBuilder = new QueryBuilder();
+
             var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, ffSrc);
+            var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).FirstOrDefaultAsync();
 
-            var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).ToListAsync();
+            allFileFlows!.Areas = await FileFlowAreasList(ffSrc);
 
-            List<FileFlowAreas> fileFlowAreas = await FileFlowAreasList(ffSrc);
+            //List<FileFlowAreas> fileFlowAreas = await FileFlowAreasList(ffSrc);
 
-            var result = allFileFlows.Select(ff => new FileFlow
-            {
-                ID = ff.ID,
-                OrderID = ff.OrderID,
-                DesignConsultant = ff.DesignConsultant,
-                TehcnicalRep = ff.TehcnicalRep,
-                Areas = fileFlowAreas
-                    .Where(ffa => ffa.source == ff.FFsrc)
-                    .Select(ffa => new FileFlowAreas
-                    {
-                        ID = ffa.ID,
-                        ffID = ffa.ffID,
-                        PArea = ffa.PArea,
-                        NumMod = ffa.NumMod
-                    }
-                    )
-                    .ToList()
-            }).FirstOrDefault();
+            //var result = allFileFlows.Select(ff => new FileFlow
+            //{
+            //    ID = ff.ID,
+            //    OrderID = ff.OrderID,
+            //    DesignConsultant = ff.DesignConsultant,
+            //    TehcnicalRep = ff.TehcnicalRep,
+            //    Areas = fileFlowAreas
+            //        .Where(ffa => ffa.source == ff.FFsrc)
+            //        .Select(ffa => new FileFlowAreas
+            //        {
+            //            ID = ffa.ID,
+            //            ffID = ffa.ffID,
+            //            PArea = ffa.PArea,
+            //            NumMod = ffa.NumMod
+            //        }
+            //        )
+            //        .ToList()
+            //}).FirstOrDefault();
 
-            return result;
+            return allFileFlows;
         }
 
         private Task<List<FileFlowAreas>> FileFlowAreasList(string ffSrc)

@@ -112,7 +112,23 @@ namespace Installation.Service.Model.Installation
         public string? MHGrouping { get; set; }
 
         public string? samplecolor { get; set; }
+        /// <summary>
+        /// Addedcustom Property to Customer data/info hold
+        /// </summary>
+        /// 
+        public string Ordrno { get; set; } = string.Empty;
+        public string Ctitle { get; set; } = string.Empty;
+        public string CName { get; set; } = string.Empty;
+        public string CSurname { get; set; } = string.Empty;
+        public string CAdd { get; set; } = string.Empty;
+        public string CCon { get; set; } = string.Empty;
+        public string Cmobile { get; set; } = string.Empty;
+        public string CFax { get; set; } = string.Empty;
+        public string ConPrsn { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Collection of Areas
+        /// </summary>
         public ICollection<FileFlowAreasDto>? Areas { get; set; } = new List<FileFlowAreasDto>();
     }
 }

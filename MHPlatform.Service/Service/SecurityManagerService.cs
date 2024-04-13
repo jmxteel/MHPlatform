@@ -71,18 +71,18 @@ namespace MHPlatform.Service.Service
             // Get all claims for this user
             claims = GetUserClaims(userId);
 
-            foreach (UserClaimDto claim in claims)
-            {
-                try
-                {
-                    // use reflection to set property
-                    _authType.GetProperty(claim.ClaimType)?.SetValue(_auth, Convert.ToBoolean(claim.ClaimValue), null);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error in setting claims", ex);
-                }
-            }
+            //foreach (UserClaimDto claim in claims)
+            //{
+            //    try
+            //    {
+            //        // use reflection to set property
+            //        _authType.GetProperty(claim.ClaimType)?.SetValue(_auth, Convert.ToBoolean(claim.ClaimValue), null);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw new Exception("Error in setting claims", ex);
+            //    }
+            //}
             var tokens = BuildJwtToken(claims, userName);
             //_auth.BearerToken = BuildJwtToken(claims, userName);
             _auth.BearerToken = tokens.Item1; // Bearer Token
@@ -231,7 +231,8 @@ namespace MHPlatform.Service.Service
                 var expiry = payload?.FirstOrDefault(x => x.Key == "exp");
                 var expiryDate = (long)payload!["exp"];
 
-                var unixTimestampNow = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+                DateTime currentTime = DateTime.UtcNow;
+                var unixTimestampNow = ((DateTimeOffset)currentTime).ToUnixTimeSeconds();
 
                 if (unixTimestampNow < expiryDate)
                 {

@@ -9,6 +9,10 @@ using System.Xml.Linq;
 
 namespace Installation.Domain.Entities
 {
+	/// <summary>
+	///	This class is the combination of the result of joining FileFlow.tbl and OrderForm.tbl with the list of areas
+	///	in FileFlowAreasTbl
+	/// </summary>
 	public class FileFlow
 	{
 		[Key]
@@ -115,7 +119,32 @@ namespace Installation.Domain.Entities
 
 		public string? samplecolor { get; set; }
 
-		public ICollection<FileFlowAreas>? Areas { get; set; } = new List<FileFlowAreas>();
+        /// <summary>
+        /// Addedcustom Property to Customer data/info hold
+        /// </summary>
+        /// 
+        public string Ordrno { get; set; } = string.Empty;
+
+        public string Ctitle { get; set; } = string.Empty;
+
+        public string CName { get; set; } = string.Empty;
+
+        public string CSurname { get; set; } = string.Empty;
+
+        public string CAdd { get; set; } = string.Empty;
+
+        public string CCon { get; set; } = string.Empty;
+
+        public string Cmobile { get; set; } = string.Empty;
+
+        public string CFax { get; set; } = string.Empty;
+
+        public string ConPrsn { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Collection of Areas
+        /// </summary>
+        public ICollection<FileFlowAreas>? Areas { get; set; } = new List<FileFlowAreas>();
 
     }
 }

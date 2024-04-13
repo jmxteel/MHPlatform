@@ -64,6 +64,7 @@ namespace MHPlatform.API.Controllers
 
                 if (!string.IsNullOrEmpty(refreshTokencredential.Token) && !this.mgr.validateExpiry(refreshTokencredential!.Token))
                 {
+                    refreshTokencredential.Token = auth.RefreshToken;
                     await _unitOfWork.GetRepository<RefreshToken>().UpdateAsync(refreshTokencredential!);
                 }
                 else
