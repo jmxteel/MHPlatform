@@ -49,12 +49,14 @@ builder.Services.AddScoped<IFileFlowAreaRepository, FileFlowAreaRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<UserAuthBase>();
 builder.Services.AddScoped<ISecurityManager, SecurityManager>();
+builder.Services.AddScoped<IOrderFormRepository, OrderFormRepository>();
 
 builder.Services.AddTransient(typeof(IGenericService<,>), typeof(GenericService<,>));
 builder.Services.AddTransient<IFileFlowService, FileFlowService>();
 builder.Services.AddTransient<IFileFlowAreaService, FileFlowAreaService>();
 builder.Services.AddTransient<UserAuthBaseDto>();
 builder.Services.AddTransient<ISecurityManagerService, SecurityManagerService>();
+builder.Services.AddTransient<IOrderFormService, OrderFormService>();
 
 builder.Services.MHPlatformServices();
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MHPlatform.Domain
+namespace MHPlatform.Domain.Enum
 {
     public enum FileFlowEnum
     {

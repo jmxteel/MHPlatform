@@ -1,4 +1,6 @@
 ﻿using Installation.Domain.Entities;
+using MHPlatform.Domain.Enum;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +12,14 @@ namespace Installation.Domain.SQLBuilder
 {
     public class QueryBuilder : QueryBuilderStrategy
     {
-        public override string SQLQueryBuilder<T>(DataManipulationEnum command, string? orderNo, string? topCount = null)
+        public override string SQLQueryBuilder<T>(DataManipulationEnum command, string? constraint, string? topCount = null)
         {
             Type entity = typeof(T);
             var entityName = entity.Name.ToString();
             var queryBuilder = new StringBuilder();
             queryBuilder.AppendLine(command.ToString());
 
-            if(topCount is not null)
+            if (topCount is not null)
             {
                 queryBuilder.AppendLine($" TOP {topCount}");
             }
@@ -26,7 +28,7 @@ namespace Installation.Domain.SQLBuilder
             foreach (var property in typeof(T).GetProperties())
             {
                 propertyCount++;
-                _= propertyCount != typeof(T).GetProperties().Length? queryBuilder.AppendLine($" {property.Name},") : queryBuilder.AppendLine($" {property.Name}");
+                _ = propertyCount != typeof(T).GetProperties().Length? queryBuilder.AppendLine($" {CheckIsLock(property.Name)},") : queryBuilder.AppendLine($" {CheckIsLock(property.Name)}");
                 //Console.WriteLine($"Property name: {property.Name}, Property type: {property.PropertyType}");
                 //queryBuilder.AppendLine($" {property.Name},");
             }
@@ -34,12 +36,33 @@ namespace Installation.Domain.SQLBuilder
             queryBuilder.AppendLine(" FROM");
             queryBuilder.AppendLine($" {entityName}");
 
-            if(entityName == "OrderForm")
+            EntityEnum entitySource = (EntityEnum)Enum.Parse(typeof(EntityEnum), entityName);
+            switch (entitySource)
             {
-                queryBuilder.AppendLine($" WHERE Ordrno = '{orderNo}' AND del = 'no'");
+                case EntityEnum.OrderForm:
+                    queryBuilder.AppendLine($" WHERE Ordrno = '{constraint}' AND del = 'no'");
+                    break;
+                case EntityEnum.FileFlow:
+                    queryBuilder.AppendLine($" WHERE FFsrc = '{constraint}' AND (deleted IS NULL OR deleted = '')");
+                    break;
+                case EntityEnum.FileFlowAreas:
+                    break;
+                case EntityEnum.User:
+                    break;
+                case EntityEnum.Claim:
+                    break;
+                case EntityEnum.RefreshTokens:
+                    break;
+                default:
+                    break;
             }
 
             return queryBuilder.ToString();
+        }
+
+        private static string CheckIsLock(string stringValue)
+        {
+            return stringValue == "islock" ? "lock" : stringValue;
         }
         public override string SQLQueryBuilder(DataManipulationEnum command, string ffSrc)
         {

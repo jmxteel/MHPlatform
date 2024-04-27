@@ -1,4 +1,5 @@
 ﻿using Installation.Domain.Entities;
+using MHPlatform.Service.Model.OrderForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Installation.Service.Model.Installation
 {
-    public class FileFlowDto
+    public class FileFlowDto: OrderFormDto
     {
         public int ID { get; set; }
 
@@ -116,15 +117,15 @@ namespace Installation.Service.Model.Installation
         /// Addedcustom Property to Customer data/info hold
         /// </summary>
         /// 
-        public string Ordrno { get; set; } = string.Empty;
-        public string Ctitle { get; set; } = string.Empty;
-        public string CName { get; set; } = string.Empty;
-        public string CSurname { get; set; } = string.Empty;
-        public string CAdd { get; set; } = string.Empty;
-        public string CCon { get; set; } = string.Empty;
-        public string Cmobile { get; set; } = string.Empty;
-        public string CFax { get; set; } = string.Empty;
-        public string ConPrsn { get; set; } = string.Empty;
+        //public string? Ordrno { get; set; } = string.Empty;
+        //public string? Ctitle { get; set; } = string.Empty;
+        //public string? CName { get; set; } = string.Empty;
+        //public string? CSurname { get; set; } = string.Empty;
+        //public string? CAdd { get; set; } = string.Empty;
+        //public string? CCon { get; set; } = string.Empty;
+        //public string? Cmobile { get; set; } = string.Empty;
+        //public string? CFax { get; set; } = string.Empty;
+        //public string? ConPrsn { get; set; } = string.Empty;
 
         /// <summary>
         /// Collection of Areas

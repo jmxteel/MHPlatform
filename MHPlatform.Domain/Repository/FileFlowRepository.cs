@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MHPlatform.Domain;
+using MHPlatform.Domain.Enum;
 
 namespace Installation.Domain.Repository
 {
@@ -25,38 +25,15 @@ namespace Installation.Domain.Repository
         {
             var fileFlowQueryBuilder = new QueryBuilder();
 
-            var query = fileFlowQueryBuilder.SQLQueryBuilder(DataManipulationEnum.SELECT, ffSrc);
+            var query = fileFlowQueryBuilder.SQLQueryBuilder<FileFlow>(DataManipulationEnum.SELECT, ffSrc, "1");
             var allFileFlows = await _context.FileFlow!.FromSqlRaw(query).FirstOrDefaultAsync();
-
-            allFileFlows!.Areas = await FileFlowAreasList(ffSrc);
-
-            //List<FileFlowAreas> fileFlowAreas = await FileFlowAreasList(ffSrc);
-
-            //var result = allFileFlows.Select(ff => new FileFlow
-            //{
-            //    ID = ff.ID,
-            //    OrderID = ff.OrderID,
-            //    DesignConsultant = ff.DesignConsultant,
-            //    TehcnicalRep = ff.TehcnicalRep,
-            //    Areas = fileFlowAreas
-            //        .Where(ffa => ffa.source == ff.FFsrc)
-            //        .Select(ffa => new FileFlowAreas
-            //        {
-            //            ID = ffa.ID,
-            //            ffID = ffa.ffID,
-            //            PArea = ffa.PArea,
-            //            NumMod = ffa.NumMod
-            //        }
-            //        )
-            //        .ToList()
-            //}).FirstOrDefault();
 
             return allFileFlows;
         }
 
-        private Task<List<FileFlowAreas>> FileFlowAreasList(string ffSrc)
+        public async Task<List<FileFlowAreas>> FileFlowAreasList(string ffSrc)
         {
-            var fileFlowAreas = _context.FileFlowAreas!.Where(o => o.source == ffSrc && o.Actn == FileFlowEnum.displayed.ToString()).ToListAsync();
+            var fileFlowAreas = await _context.FileFlowAreas!.Where(o => o.source == ffSrc && o.Actn == FileFlowEnum.displayed.ToString()).ToListAsync();
             return fileFlowAreas;
         }
     }

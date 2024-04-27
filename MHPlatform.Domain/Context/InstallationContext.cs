@@ -11,6 +11,7 @@ namespace Installation.Domain.Context
 {
     public class InstallationContext : DbContext
     {
+        public DbSet<OrderForm>? OrderForms { get; set; }
         public DbSet<FileFlow>? FileFlow { get; set; }
         public DbSet<FileFlowAreas>? FileFlowAreas { get; set; }
         public DbSet<UserBase>? Users { get; set; }

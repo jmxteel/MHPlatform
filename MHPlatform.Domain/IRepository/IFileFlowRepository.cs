@@ -11,5 +11,7 @@ namespace Installation.Domain.IRepository
     public interface IFileFlowRepository: IGeneric<FileFlow>
     {
         Task<FileFlow?> GetFolderWithAreas(string ffSrc);
+
+        Task<List<FileFlowAreas>> FileFlowAreasList(string ffSrc);
     }
 }
