@@ -1940,19 +1940,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jm_xt\\.nuget\\packages\\": {}
+    "C:\\Users\\Wrath\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repo\\MHPlatform\\MHPlatform.Domain\\MHPlatform.Domain.csproj",
+      "projectUniqueName": "D:\\Repo\\MHPlatform\\MHPlatform.Domain\\MHPlatform.Domain.csproj",
       "projectName": "MHPlatform.Domain",
-      "projectPath": "C:\\Repo\\MHPlatform\\MHPlatform.Domain\\MHPlatform.Domain.csproj",
-      "packagesPath": "C:\\Users\\jm_xt\\.nuget\\packages\\",
-      "outputPath": "C:\\Repo\\MHPlatform\\MHPlatform.Domain\\obj\\",
+      "projectPath": "D:\\Repo\\MHPlatform\\MHPlatform.Domain\\MHPlatform.Domain.csproj",
+      "packagesPath": "C:\\Users\\Wrath\\.nuget\\packages\\",
+      "outputPath": "D:\\Repo\\MHPlatform\\MHPlatform.Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\jm_xt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Wrath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

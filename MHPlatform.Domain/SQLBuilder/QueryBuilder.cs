@@ -74,6 +74,7 @@ namespace Installation.Domain.SQLBuilder
             queryBuilder.AppendLine("ofrm.[CName],");
             queryBuilder.AppendLine("ofrm.[CSurname],");
             queryBuilder.AppendLine("ofrm.[CAdd],");
+            queryBuilder.AppendLine("ofrm.[InsAdd],");
             queryBuilder.AppendLine("ofrm.[CCon],");
             queryBuilder.AppendLine("ofrm.[Cmobile],");
             queryBuilder.AppendLine("ofrm.[CFax],");

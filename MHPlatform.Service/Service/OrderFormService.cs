@@ -6,6 +6,7 @@ using Installation.Service.Model.Installation;
 using Installation.Service.Service;
 using MHPlatform.Domain.Entities;
 using MHPlatform.Domain.IRepository;
+using MHPlatform.Domain.Models;
 using MHPlatform.Service.IService;
 using MHPlatform.Service.Model.OrderForm;
 using System;
@@ -35,6 +36,14 @@ namespace MHPlatform.Service.Service
             var resultDto = _mapper.Map<OrderFormDto>(result);
 
             return resultDto;
+        }
+
+        public async Task<(IEnumerable<OrderFormDto>, PaginationMetaData)> GetAllClientAsync(string? filter, string? q, int pageNumber, int pageSize)
+        {
+            var (clientsResult, paginationMetaData) = await _orderFormRepository.GetAllClientAsync(filter, q, pageNumber, pageSize);
+            var clients = _mapper.Map<IEnumerable<OrderFormDto>>(clientsResult); 
+
+            return (clients, paginationMetaData);
         }
 
     }

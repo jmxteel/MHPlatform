@@ -21,6 +21,8 @@ namespace MHPlatform.Service.Model.OrderForm
 
         public string CAdd { get; set; } = string.Empty;
 
+        public string InsAdd { get; set; } = string.Empty;
+
         public string CCon { get; set; } = string.Empty;
 
         public string Cmobile { get; set; } = string.Empty;
