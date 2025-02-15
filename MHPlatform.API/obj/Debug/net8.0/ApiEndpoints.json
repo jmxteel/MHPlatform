@@ -1,0 +1,204 @@
+[
+  {
+    "ContainingType": "MHPlatform.API.Controllers.ClientController",
+    "Method": "GetPagedData",
+    "RelativePath": "api/Client",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "start",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "end",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortField",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MHPlatform.API.Controllers.ClientController",
+    "Method": "GetClient",
+    "RelativePath": "api/Client/{ordrNo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordrNo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MHPlatform.API.Controllers.ClientController",
+    "Method": "GetAllClients",
+    "RelativePath": "api/Client/AllClients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "q",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Installation.API.Controllers.FileFlowController",
+    "Method": "All",
+    "RelativePath": "api/fileFlow",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Installation.Service.Model.Installation.FileFlowDto, MHPlatform.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Installation.API.Controllers.FileFlowController",
+    "Method": "FolderWithAreas",
+    "RelativePath": "api/fileFlow/Areas/{ffSrc}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ffSrc",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Installation.Domain.Entities.FileFlow, MHPlatform.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Installation.API.Controllers.FileFlowAreasController",
+    "Method": "All",
+    "RelativePath": "api/FileFlowAreas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Installation.Service.Model.Installation.FileFlowAreasDto, MHPlatform.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MHPlatform.API.Controllers.SecurityController",
+    "Method": "LogIn",
+    "RelativePath": "api/Security",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "MHPlatform.Domain.Entities.AppUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MHPlatform.API.Controllers.SecurityController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Security/RefreshToken/{userName}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "refreshToken",
+        "Type": "MHPlatform.Domain.Entities.RefreshToken",
+        "IsRequired": true
+      },
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Installation.API.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Installation.API.WeatherForecast, MHPlatform.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

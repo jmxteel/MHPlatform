@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "AmKDCeeQkvYirC6BQA+Iah+HK4craocqhEaR55xMetU=",
+  "Source": "MHPlatform.API",
+  "BasePath": "_content/MHPlatform.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

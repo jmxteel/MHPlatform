@@ -1,0 +1,15 @@
+D:\Repo\MHPlatform\MHPlatform.Domain\bin\Debug\net8.0\MHPlatform.Domain.deps.json
+D:\Repo\MHPlatform\MHPlatform.Domain\bin\Debug\net8.0\MHPlatform.Domain.dll
+D:\Repo\MHPlatform\MHPlatform.Domain\bin\Debug\net8.0\MHPlatform.Domain.pdb
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.csproj.AssemblyReference.cache
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.AssemblyInfoInputs.cache
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.AssemblyInfo.cs
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.csproj.CoreCompileInputs.cache
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.sourcelink.json
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.dll
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\refint\MHPlatform.Domain.dll
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.pdb
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\ref\MHPlatform.Domain.dll
+D:\Repo\MHPlatform\MHPlatform.Domain\bin\Debug\net8.0\MHPlatform.Domain.runtimeconfig.json
+D:\Repo\MHPlatform\MHPlatform.Domain\obj\Debug\net8.0\MHPlatform.Domain.genruntimeconfig.cache

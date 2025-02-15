@@ -1,0 +1,1008 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MHPlatform.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Client/{ordrNo}": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ordrNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Client/AllClients": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Client": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "Id"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "asc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/fileFlow": {
+      "get": {
+        "tags": [
+          "FileFlow"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlowDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlowDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlowDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/fileFlow/Areas/{ffSrc}": {
+      "get": {
+        "tags": [
+          "FileFlow"
+        ],
+        "parameters": [
+          {
+            "name": "ffSrc",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlow"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlow"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlow"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FileFlowAreas": {
+      "get": {
+        "tags": [
+          "FileFlowAreas"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlowAreasDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlowAreasDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlowAreasDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Security": {
+      "post": {
+        "tags": [
+          "Security"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Security/RefreshToken/{userName}": {
+      "post": {
+        "tags": [
+          "Security"
+        ],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshToken"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshToken"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppUser": {
+        "required": [
+          "password",
+          "userId",
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileFlow": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderID": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileFlowNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "datecreated": {
+            "type": "string",
+            "nullable": true
+          },
+          "oTfactor": {
+            "type": "string",
+            "nullable": true
+          },
+          "oTchkbx": {
+            "type": "string",
+            "nullable": true
+          },
+          "priority": {
+            "type": "string",
+            "nullable": true
+          },
+          "apprxDelDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "projectList": {
+            "type": "string",
+            "nullable": true
+          },
+          "apprDelDateTxt": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentReceived": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fileMadeUp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "designConsultant": {
+            "type": "string",
+            "nullable": true
+          },
+          "tehcnicalRep": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileIn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cmDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fileOut": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "overTargetDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "reasons": {
+            "type": "string",
+            "nullable": true
+          },
+          "leadStart": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "leadClosed": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "revision": {
+            "type": "string",
+            "nullable": true
+          },
+          "chckddocsDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "chckdforTechnclDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "approvedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "leftshwroom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "recvinplant": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "shwrm": {
+            "type": "string",
+            "nullable": true
+          },
+          "deleted": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletedby": {
+            "type": "string",
+            "nullable": true
+          },
+          "grpngSysGen": {
+            "type": "string",
+            "nullable": true
+          },
+          "grpngCtgry": {
+            "type": "string",
+            "nullable": true
+          },
+          "grpngMat": {
+            "type": "string",
+            "nullable": true
+          },
+          "manualGrpngCtgry": {
+            "type": "string",
+            "nullable": true
+          },
+          "manualGrpngMat": {
+            "type": "string",
+            "nullable": true
+          },
+          "chckbySalesDesigner": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "variation": {
+            "type": "string",
+            "nullable": true
+          },
+          "workingDaysOver": {
+            "type": "string",
+            "nullable": true
+          },
+          "workingDaysUnder": {
+            "type": "string",
+            "nullable": true
+          },
+          "fFsrc": {
+            "type": "string",
+            "nullable": true
+          },
+          "fGrouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "mGrouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "sysVer": {
+            "type": "string",
+            "nullable": true
+          },
+          "typ": {
+            "type": "string",
+            "nullable": true
+          },
+          "cbfpaging": {
+            "type": "string",
+            "nullable": true
+          },
+          "fpaging": {
+            "type": "string",
+            "nullable": true
+          },
+          "islock": {
+            "type": "string",
+            "nullable": true
+          },
+          "lockedby": {
+            "type": "string",
+            "nullable": true
+          },
+          "mhGrouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "samplecolor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileFlowAreasDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ffID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ffno": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionID": {
+            "type": "string",
+            "nullable": true
+          },
+          "pArea": {
+            "type": "string",
+            "nullable": true
+          },
+          "numMod": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "addedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "actn": {
+            "type": "string",
+            "nullable": true
+          },
+          "liable": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateAltered": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "categry": {
+            "type": "string",
+            "nullable": true
+          },
+          "mat": {
+            "type": "string",
+            "nullable": true
+          },
+          "tech": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderID": {
+            "type": "string",
+            "nullable": true
+          },
+          "src": {
+            "type": "string",
+            "nullable": true
+          },
+          "cMfinal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileFlowDto": {
+        "type": "object",
+        "properties": {
+          "ordrno": {
+            "type": "string",
+            "nullable": true
+          },
+          "ctitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "cName": {
+            "type": "string",
+            "nullable": true
+          },
+          "cSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "cAdd": {
+            "type": "string",
+            "nullable": true
+          },
+          "insAdd": {
+            "type": "string",
+            "nullable": true
+          },
+          "cCon": {
+            "type": "string",
+            "nullable": true
+          },
+          "cmobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "cFax": {
+            "type": "string",
+            "nullable": true
+          },
+          "conPrsn": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderID": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileFlowNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "datecreated": {
+            "type": "string",
+            "nullable": true
+          },
+          "oTfactor": {
+            "type": "string",
+            "nullable": true
+          },
+          "oTchkbx": {
+            "type": "string",
+            "nullable": true
+          },
+          "priority": {
+            "type": "string",
+            "nullable": true
+          },
+          "apprxDelDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "projectList": {
+            "type": "string",
+            "nullable": true
+          },
+          "apprDelDateTxt": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentReceived": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fileMadeUp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "designConsultant": {
+            "type": "string",
+            "nullable": true
+          },
+          "tehcnicalRep": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileIn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cmDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fileOut": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "overTargetDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "reasons": {
+            "type": "string",
+            "nullable": true
+          },
+          "leadStart": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "leadClosed": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "revision": {
+            "type": "string",
+            "nullable": true
+          },
+          "chckddocsDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "chckdforTechnclDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "approvedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "leftshwroom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "recvinplant": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "shwrm": {
+            "type": "string",
+            "nullable": true
+          },
+          "deleted": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletedby": {
+            "type": "string",
+            "nullable": true
+          },
+          "grpngSysGen": {
+            "type": "string",
+            "nullable": true
+          },
+          "grpngCtgry": {
+            "type": "string",
+            "nullable": true
+          },
+          "grpngMat": {
+            "type": "string",
+            "nullable": true
+          },
+          "manualGrpngCtgry": {
+            "type": "string",
+            "nullable": true
+          },
+          "manualGrpngMat": {
+            "type": "string",
+            "nullable": true
+          },
+          "chckbySalesDesigner": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "variation": {
+            "type": "string",
+            "nullable": true
+          },
+          "workingDaysOver": {
+            "type": "string",
+            "nullable": true
+          },
+          "workingDaysUnder": {
+            "type": "string",
+            "nullable": true
+          },
+          "fFsrc": {
+            "type": "string",
+            "nullable": true
+          },
+          "fGrouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "mGrouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "sysVer": {
+            "type": "string",
+            "nullable": true
+          },
+          "typ": {
+            "type": "string",
+            "nullable": true
+          },
+          "cbfpaging": {
+            "type": "string",
+            "nullable": true
+          },
+          "fpaging": {
+            "type": "string",
+            "nullable": true
+          },
+          "islock": {
+            "type": "string",
+            "nullable": true
+          },
+          "lockedby": {
+            "type": "string",
+            "nullable": true
+          },
+          "mhGrouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "samplecolor": {
+            "type": "string",
+            "nullable": true
+          },
+          "areas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileFlowAreasDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshToken": {
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
