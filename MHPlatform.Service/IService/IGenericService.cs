@@ -11,10 +11,16 @@ namespace Installation.Service.IService
 {
     public interface IGenericService<TDto, T>where TDto : class where T : class
     {
+        Task<IEnumerable<TDto>> FindByConditionAsync(Expression<Func<T, bool>> predicate);
+
         Task<IEnumerable<TDto?>> GetAllAsync();
+
         Task<TDto?> GetByIdAsync(int? id);
+
         Task AddAsync(TDto entity);
+
         Task UpdateAsync(TDto entity);
+
         Task DeleteAsync(TDto entity);
     }
 }

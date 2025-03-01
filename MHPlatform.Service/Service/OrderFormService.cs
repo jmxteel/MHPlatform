@@ -30,7 +30,7 @@ namespace MHPlatform.Service.Service
             this._unitOfWork = unitOfWork; 
         }
 
-        public async Task<OrderFormDto> GetClientDetails(string ordrNo)
+        public async Task<OrderFormDto> GetClientDetailsAsync(string ordrNo)
         {
             var result = await _orderFormRepository.GetClientDetailsAsync(ordrNo);
             var resultDto = _mapper.Map<OrderFormDto>(result);

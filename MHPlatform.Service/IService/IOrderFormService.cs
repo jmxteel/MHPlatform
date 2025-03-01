@@ -12,7 +12,7 @@ namespace MHPlatform.Service.IService
 {
     public interface IOrderFormService: IGenericService<OrderFormDto,OrderForm>
     {
-        Task<OrderFormDto> GetClientDetails(string ordrNo);
+        Task<OrderFormDto> GetClientDetailsAsync(string ordrNo);
         Task<(IEnumerable<OrderFormDto>, PaginationMetaData)> GetAllClientAsync(string? filter, string? q, int pageNumber, int pageSize);
     }
 }

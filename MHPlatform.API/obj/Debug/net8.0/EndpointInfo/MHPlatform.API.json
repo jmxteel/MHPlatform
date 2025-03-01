@@ -121,44 +121,6 @@
         }
       }
     },
-    "/api/fileFlow": {
-      "get": {
-        "tags": [
-          "FileFlow"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FileFlowDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FileFlowDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FileFlowDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/fileFlow/Areas/{ffSrc}": {
       "get": {
         "tags": [
@@ -171,6 +133,76 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlow"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlow"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FileFlow"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/fileFlow": {
+      "get": {
+        "tags": [
+          "FileFlow"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -681,279 +713,6 @@
           },
           "cMfinal": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FileFlowDto": {
-        "type": "object",
-        "properties": {
-          "ordrno": {
-            "type": "string",
-            "nullable": true
-          },
-          "ctitle": {
-            "type": "string",
-            "nullable": true
-          },
-          "cName": {
-            "type": "string",
-            "nullable": true
-          },
-          "cSurname": {
-            "type": "string",
-            "nullable": true
-          },
-          "cAdd": {
-            "type": "string",
-            "nullable": true
-          },
-          "insAdd": {
-            "type": "string",
-            "nullable": true
-          },
-          "cCon": {
-            "type": "string",
-            "nullable": true
-          },
-          "cmobile": {
-            "type": "string",
-            "nullable": true
-          },
-          "cFax": {
-            "type": "string",
-            "nullable": true
-          },
-          "conPrsn": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "orderID": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileFlowNo": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "datecreated": {
-            "type": "string",
-            "nullable": true
-          },
-          "oTfactor": {
-            "type": "string",
-            "nullable": true
-          },
-          "oTchkbx": {
-            "type": "string",
-            "nullable": true
-          },
-          "priority": {
-            "type": "string",
-            "nullable": true
-          },
-          "apprxDelDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "projectList": {
-            "type": "string",
-            "nullable": true
-          },
-          "apprDelDateTxt": {
-            "type": "string",
-            "nullable": true
-          },
-          "paymentReceived": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "fileMadeUp": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "designConsultant": {
-            "type": "string",
-            "nullable": true
-          },
-          "tehcnicalRep": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileIn": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "cmDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "targetDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "fileOut": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "overTargetDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "reasons": {
-            "type": "string",
-            "nullable": true
-          },
-          "leadStart": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "leadClosed": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "revision": {
-            "type": "string",
-            "nullable": true
-          },
-          "chckddocsDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "chckdforTechnclDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "approvedDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "leftshwroom": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "recvinplant": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "shwrm": {
-            "type": "string",
-            "nullable": true
-          },
-          "deleted": {
-            "type": "string",
-            "nullable": true
-          },
-          "deletedby": {
-            "type": "string",
-            "nullable": true
-          },
-          "grpngSysGen": {
-            "type": "string",
-            "nullable": true
-          },
-          "grpngCtgry": {
-            "type": "string",
-            "nullable": true
-          },
-          "grpngMat": {
-            "type": "string",
-            "nullable": true
-          },
-          "manualGrpngCtgry": {
-            "type": "string",
-            "nullable": true
-          },
-          "manualGrpngMat": {
-            "type": "string",
-            "nullable": true
-          },
-          "chckbySalesDesigner": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "variation": {
-            "type": "string",
-            "nullable": true
-          },
-          "workingDaysOver": {
-            "type": "string",
-            "nullable": true
-          },
-          "workingDaysUnder": {
-            "type": "string",
-            "nullable": true
-          },
-          "fFsrc": {
-            "type": "string",
-            "nullable": true
-          },
-          "fGrouping": {
-            "type": "string",
-            "nullable": true
-          },
-          "mGrouping": {
-            "type": "string",
-            "nullable": true
-          },
-          "sysVer": {
-            "type": "string",
-            "nullable": true
-          },
-          "typ": {
-            "type": "string",
-            "nullable": true
-          },
-          "cbfpaging": {
-            "type": "string",
-            "nullable": true
-          },
-          "fpaging": {
-            "type": "string",
-            "nullable": true
-          },
-          "islock": {
-            "type": "string",
-            "nullable": true
-          },
-          "lockedby": {
-            "type": "string",
-            "nullable": true
-          },
-          "mhGrouping": {
-            "type": "string",
-            "nullable": true
-          },
-          "samplecolor": {
-            "type": "string",
-            "nullable": true
-          },
-          "areas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FileFlowAreasDto"
-            },
             "nullable": true
           }
         },

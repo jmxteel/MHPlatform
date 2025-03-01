@@ -25,6 +25,13 @@ namespace Installation.Service.Service
             _mapper = mapper;
         }
 
+        public async Task<IEnumerable<TDto>> FindByConditionAsync(Expression<Func<T, bool>> predicate)
+        {
+            var result = await _unitOfWork.GetRepository<T>().FindByConditionAsync(predicate);
+            var resultDto = _mapper.Map<IEnumerable<TDto>>(result);
+            return resultDto;
+        }
+
         public async Task<IEnumerable<TDto?>> GetAllAsync()
         {
             var result = await _unitOfWork.GetRepository<T>().GetAllAsync();

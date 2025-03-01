@@ -13,11 +13,11 @@ namespace Installation.Service.Model.Installation
     {
         public int ID { get; set; }
 
-        public string? OrderID { get; set; }
+        public string OrderID { get; set; } =string.Empty;
 
         public int FileFlowNo { get; set; }
 
-        public string? datecreated { get; set; }
+        public string? Datecreated { get; set; }
 
         public string? OTfactor { get; set; }
 
@@ -49,7 +49,7 @@ namespace Installation.Service.Model.Installation
 
         public DateTime? OverTargetDate { get; set; }
 
-        public string? reasons { get; set; }
+        public string? Reasons { get; set; }
 
         public DateTime? LeadStart { get; set; }
 
@@ -57,21 +57,21 @@ namespace Installation.Service.Model.Installation
 
         public string? Revision { get; set; }
 
-        public DateTime? chckddocsDate { get; set; }
+        public DateTime? ChckddocsDate { get; set; }
 
-        public DateTime? chckdforTechnclDate { get; set; }
+        public DateTime? ChckdforTechnclDate { get; set; }
 
         public DateTime? ApprovedDate { get; set; }
 
-        public DateTime? leftshwroom { get; set; }
+        public DateTime? Leftshwroom { get; set; }
 
-        public DateTime? recvinplant { get; set; }
+        public DateTime? Recvinplant { get; set; }
 
-        public string? shwrm { get; set; }
+        public string? Shwrm { get; set; }
 
-        public string? deleted { get; set; }
+        public string? Deleted { get; set; }
 
-        public string? deletedby { get; set; }
+        public string? Deletedby { get; set; }
 
         public string? GrpngSysGen { get; set; }
 
@@ -83,13 +83,13 @@ namespace Installation.Service.Model.Installation
 
         public string? ManualGrpngMat { get; set; }
 
-        public DateTime? chckbySalesDesigner { get; set; }
+        public DateTime? ChckbySalesDesigner { get; set; }
 
-        public string? variation { get; set; }
+        public string? Variation { get; set; }
 
-        public string? workingDaysOver { get; set; }
+        public string? WorkingDaysOver { get; set; }
 
-        public string? workingDaysUnder { get; set; }
+        public string? WorkingDaysUnder { get; set; }
 
         public string? FFsrc { get; set; }
 
@@ -99,20 +99,20 @@ namespace Installation.Service.Model.Installation
 
         public string? SysVer { get; set; }
 
-        public string? typ { get; set; }
+        public string? Typ { get; set; }
 
-        public string? cbfpaging { get; set; }
+        public string? Cbfpaging { get; set; }
 
-        public string? fpaging { get; set; }
+        public string? Fpaging { get; set; }
 
         [Column("lock")]
-        public string? islock { get; set; }
+        public string? Islock { get; set; }
 
-        public string? lockedby { get; set; }
+        public string? Lockedby { get; set; }
 
         public string? MHGrouping { get; set; }
 
-        public string? samplecolor { get; set; }
+        public string? Samplecolor { get; set; }
         /// <summary>
         /// Addedcustom Property to Customer data/info hold
         /// </summary>
@@ -130,6 +130,6 @@ namespace Installation.Service.Model.Installation
         /// <summary>
         /// Collection of Areas
         /// </summary>
-        public ICollection<FileFlowAreasDto>? Areas { get; set; } = new List<FileFlowAreasDto>();
+        public ICollection<FileFlowAreasDto> Areas { get; set; } = new List<FileFlowAreasDto>();
     }
 }

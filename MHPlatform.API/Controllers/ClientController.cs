@@ -24,7 +24,7 @@ namespace MHPlatform.API.Controllers
         {
             try
             {
-                var client = await _service.GetClientDetails(ordrNo);
+                var client = await _service.GetClientDetailsAsync(ordrNo);
                 return Ok(client);
             }
             catch (Exception ex)
@@ -51,7 +51,8 @@ namespace MHPlatform.API.Controllers
                     return NotFound();
                 }
 
-                Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetaData));
+                //Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetaData));
+                Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetaData));
 
                 return Ok(clients);
 

@@ -42,7 +42,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<InstallationContext>(
         dbContextOptions => dbContextOptions.UseSqlServer(
-            builder.Configuration["ConnectionStrings:DBConnectionString"]));
+            builder.Configuration["ConnectionStrings:DBConnectionString"], o => o.UseCompatibilityLevel(120)));
 
 builder.Services.AddScoped(typeof(IGeneric<>), typeof(Generic<>));
 builder.Services.AddScoped<IFileFlowRepository, FileFlowRepository>();

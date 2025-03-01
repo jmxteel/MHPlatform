@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Text.Json;
 
 namespace Installation.API.Controllers
 {
@@ -23,20 +24,13 @@ namespace Installation.API.Controllers
         private readonly IFileFlowService _service;
         private readonly IMapper _mapper;
         private readonly InstallationContext _context;
+        const int maxProductPageSize = 100;
 
         public FileFlowController(IFileFlowService service, IMapper mapper, InstallationContext context)
         {
             _service = service;
             _mapper = mapper;
             _context = context;
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<FileFlowDto>>> All()
-        {
-            var result = await _service.GetAllAsync();
-
-            return Ok(result);
         }
 
         [HttpGet("Areas/{ffSrc}")]
@@ -50,6 +44,36 @@ namespace Installation.API.Controllers
             catch
             {
                 return NotFound($"The FFSrc {ffSrc} does not exist");
+            }
+
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<FileFlow>>> GetPaginatedFileFlow(string? filter, string? q, int pageNumber, int pageSize)
+        {
+
+            try
+            {
+                if (pageSize > maxProductPageSize)
+                {
+                    pageSize = maxProductPageSize;
+                }
+
+                var (fileFlows, paginationMetaData) = await _service.GetFileFlowPaginated(filter, q, pageNumber, pageSize); ;
+                if (fileFlows == null)
+                {
+                    return NotFound();
+                }
+
+                //Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetaData));
+                Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetaData));
+
+                return Ok(fileFlows);
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
             }
 
         }

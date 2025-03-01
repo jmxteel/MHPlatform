@@ -18,7 +18,7 @@ namespace Installation.Domain.Entities
 		[Key]
 		public int ID { get; set; }
 
-		public string? OrderID { get; set; }
+		public string OrderID { get; set; } = string.Empty;
 
 		public int FileFlowNo { get; set; }
 

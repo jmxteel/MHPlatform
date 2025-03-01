@@ -1,5 +1,6 @@
 ﻿using Installation.Domain.Entities;
 using Installation.Domain.Repository;
+using MHPlatform.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace Installation.Domain.IRepository
     {
         Task<FileFlow?> GetFolderWithAreas(string ffSrc);
 
-        Task<List<FileFlowAreas>> FileFlowAreasList(string ffSrc);
+        Task<List<FileFlowAreas>> FileFlowAreas(string ffSrc);
+
+        Task<(IEnumerable<FileFlow>, PaginationMetaData)> GetFileFlowPaginated(string? filter, string? q, int pageNumber, int pageSize);
+
     }
 }

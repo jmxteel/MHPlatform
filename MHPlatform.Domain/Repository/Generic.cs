@@ -19,6 +19,15 @@ namespace Installation.Domain.Repository
             _context = context;
         }
 
+        public async Task<IEnumerable<T?>> FindByConditionAsync(Expression<Func<T, bool>> predicate)
+        {
+            //var result = await _context.Set<T>().ToListAsync(predicate);
+            var result = await _context.Set<T>()
+                .Where(predicate)
+                .ToListAsync(); ;
+            return result;
+        }
+
         public async Task<IEnumerable<T?>> GetAllAsync()
         {
             return await _context.Set<T>().Take(20).ToListAsync();

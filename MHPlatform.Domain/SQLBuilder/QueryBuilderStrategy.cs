@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MHPlatform.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,12 @@ namespace Installation.Domain.SQLBuilder
         {
             throw new NotImplementedException();
         }
+
+        public virtual string SQLQueryBuilder<T>(DataManipulationEnum command, List<OrderForm> orderForms, string? topCount = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual string SQLQueryBuilder(DataManipulationEnum command, string ffSrc)
         {
             throw new NotImplementedException();

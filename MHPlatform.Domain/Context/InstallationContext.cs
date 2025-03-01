@@ -12,13 +12,13 @@ namespace Installation.Domain.Context
     public class InstallationContext : DbContext
     {
         //Entity but manipulated through sql query
-        public DbSet<OrderForm>? OrderForms { get; set; }
-        public DbSet<OrderForm>? OrderForm { get; set; }
-        public DbSet<FileFlow>? FileFlow { get; set; }
-        public DbSet<FileFlowAreas>? FileFlowAreas { get; set; }
-        public DbSet<UserBase>? Users { get; set; }
-        public DbSet<UserClaim>? Claims { get; set; }
-        public DbSet<RefreshToken>? RefreshTokens { get; set; }
+        public DbSet<OrderForm> OrderForms { get; set; }
+        public DbSet<OrderForm> OrderForm { get; set; }
+        public DbSet<FileFlow> FileFlow { get; set; }
+        public DbSet<FileFlowAreas> FileFlowAreas { get; set; }
+        public DbSet<UserBase> Users { get; set; }
+        public DbSet<UserClaim> Claims { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
         public InstallationContext(DbContextOptions<InstallationContext> options) : base(options)
         {
         }

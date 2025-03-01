@@ -19,18 +19,31 @@ namespace Installation.Service.Model.Installation
         public string? TransactionID { get; set; }
 
         public string? PArea { get; set; }
+
         public int NumMod { get; set; }
+
         public string? source { get; set; }
+
         public string? AddedBy { get; set; }
+
         public DateTime DateAdded { get; set; }
+
         public string? Actn { get; set; }
+
         public string? liable { get; set; }
+
         public DateTime DateAltered { get; set; }
+
         public string? Categry { get; set; }
+
         public string? Mat { get; set; }
+
         public string? Tech { get; set; }
+
         public string? OrderID { get; set; }
+
         public string? src { get; set; }
+
         public string? CMfinal { get; set; }
     }
 }
