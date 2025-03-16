@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "MHPlatform.API",
-    "version": "1.0"
+    "title": "My API",
+    "version": "v1"
   },
   "paths": {
     "/api/Client/{ordrNo}": {
@@ -24,7 +24,12 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/Client/AllClients": {
@@ -70,7 +75,12 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/Client": {
@@ -118,7 +128,52 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/Client/file-upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "files": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/fileFlow/Areas/{ffSrc}": {
@@ -166,7 +221,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/fileFlow": {
@@ -236,7 +296,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/FileFlowAreas": {
@@ -274,7 +339,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/Security": {
@@ -345,45 +415,6 @@
         "responses": {
           "200": {
             "description": "Success"
-          }
-        }
-      }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -738,29 +769,14 @@
           }
         },
         "additionalProperties": false
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer <your-token>' in the field below.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }

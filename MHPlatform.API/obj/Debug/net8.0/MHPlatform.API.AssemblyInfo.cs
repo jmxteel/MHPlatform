@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MHPlatform.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84baa4a88254e888d107abfa4d349ea82f276abc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc59c10a77af1c958b4195ae477b563797d037ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("MHPlatform.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MHPlatform.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

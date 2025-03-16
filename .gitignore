@@ -130,3 +130,39 @@
 /MHPlatform.Service/obj/Debug/net8.0/MHPlatform.Service.dll
 /MHPlatform.Service/obj/Debug/net8.0/MHPlatform.Service.pdb
 /MHPlatform.Service/obj/Debug/net8.0/MHPlatform.Service.sourcelink.json
+
+#Ignore thumbnails created by Windows
+Thumbs.db
+#Ignore files built by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+.vs/
+.vscode/
+#Nuget packages folder
+packages/
+
+*.env
+.terraform*

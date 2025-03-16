@@ -5,6 +5,7 @@ using Installation.Domain.UOW;
 using Installation.Service;
 using Installation.Service.IService;
 using Installation.Service.Service;
+using MHPlatform.API.Controllers.SwaggerSecurity;
 using MHPlatform.Domain.Entities;
 using MHPlatform.Domain.IRepository;
 using MHPlatform.Domain.Repository;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -38,7 +40,22 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options => {
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+    // Add Bearer Authentication in Swagger
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter 'Bearer <your-token>' in the field below."
+    });
+
+    // Apply Security Requirement to all endpoints that needs Authorization/ with [Authorize] annotation
+    options.OperationFilter<AuthorizeCheckOperationFilter>();
+});
 
 builder.Services.AddDbContext<InstallationContext>(
         dbContextOptions => dbContextOptions.UseSqlServer(
